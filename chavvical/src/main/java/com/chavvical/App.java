@@ -37,25 +37,60 @@ public class App
             char answer_a = 'a';
             char answer_b = 'b';
             char answer_c = '+';
+            char answer_d = '-';
+            char answer_e = '*';
+            char answer_f = '/';
+            char answer_g = 'c';
+            char answer_h = 'q';
 
             System.out.print("Enter a command: ");
             Scanner user1 = new Scanner(System.in);
             answer1 = user1.next().charAt(0);
-            System.out.println(answer1);
             
             if(answer1 == answer_a){
                 System.out.print("Enter a number: ");
-                A = user1.nextFloat();
-                continue;
+                if(user1.hasNextFloat()){
+                    A = user1.nextFloat();
+                    continue;
+                }else{
+                    System.out.println("Invalid input. Please enter a valid command!");
+                }
             }else if(answer1 == answer_b){
                 System.out.print("Enter a number: ");
-                B = user1.nextFloat();
-                continue;
+                if(user1.hasNextFloat()){
+                    B = user1.nextFloat();
+                    continue;
+                }else{
+                    System.out.println("Invalid input. Please enter a valid command!");
+                }
             }else if(answer1 == answer_c){
                 A = A+B;
                 continue;
-            }else{
+            }else if(answer1 == answer_d){
+                A = A-B;
+                continue;
+            }else if(answer1 == answer_e){
+                A = A*B;
+                continue;
+            }else if(answer1 == answer_f){
+                if(A==0 && B==0){
+                    System.out.println("Result is undefined. The value of A and B must be greater than 0!");
+                }else if(B==0){
+                    System.out.println("Cannot divide by 0. Change the value of B first!");
+                }else{
+                    A= A/B;
+                }
+                continue;
+            }else if(answer1 == answer_g){
+                A=0;
+                B=0;
+                continue;
+            }else if(answer1 == answer_h){
+                System.out.println("Goodbye! See you soon!");
                 break;
+            }else{
+                System.out.println("Invalid input. Please enter valid command!");
+                continue;
             }
 
             //user1.close();
